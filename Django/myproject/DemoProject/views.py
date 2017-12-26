@@ -65,7 +65,9 @@ def Who_am_I(request):
     sql.close()
     #template = 'Form.html'
     #responds = {'stringData': data,}
-    return HttpResponse(data)
+    resp = HttpResponse(data)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp 
 
 
 @csrf_exempt #csrf skip, if you want to get the http's post form anywhere
@@ -118,8 +120,9 @@ def import_vegetable(request):
     sql.close()
     #template = 'Form.html'
     #responds = {'stringData': data,}
-    return HttpResponse(data)
-
+    resp = HttpResponse(data)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp 
 
 @csrf_exempt #csrf skip, if you want to get the http's post form anywhere
 def search_price_by(request):#SELECT * FROM `vegetable_price`
@@ -154,8 +157,9 @@ def search_price_by(request):#SELECT * FROM `vegetable_price`
     sql.close()
     #template = 'Form.html'
     #responds = {'stringData': data,}
-    return HttpResponse(data)
-
+    resp = HttpResponse(data)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp 
 @csrf_exempt #csrf skip, if you want to get the http's post form anywhere
 def get_vegetable_by_id(request):#SELECT * FROM `vegetable_price`
     sql.connectDB()
@@ -175,8 +179,9 @@ def get_vegetable_by_id(request):#SELECT * FROM `vegetable_price`
     sql.close()
     #template = 'Form.html'
     #responds = {'stringData': data,}
-    return HttpResponse(data)
-
+    resp = HttpResponse(data)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp 
 #INSERT INTO `follow` (`id`, `U_id`, `V_id`, `A_id`) VALUES (NULL, 'testa1', 'FA001', '1');
 
 @csrf_exempt #csrf skip, if you want to get the http's post form anywhere
@@ -199,8 +204,9 @@ def follow_vegetable(request):#SELECT * FROM `vegetable_price`
     sql.close()
     #template = 'Form.html'
     #responds = {'stringData': data,}
-    return HttpResponse(data)
-
+    resp = HttpResponse(data)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp 
 #INSERT INTO `report` (`id`, `U_id`, `V_id`, `A_id`, `R_date`) VALUES (NULL, 'testa1', 'FR1', '1', CURRENT_TIMESTAMP);
 @csrf_exempt #csrf skip, if you want to get the http's post form anywhere
 def report_vegetable_price(request):#SELECT * FROM `vegetable_price`
@@ -224,8 +230,9 @@ def report_vegetable_price(request):#SELECT * FROM `vegetable_price`
     sql.close()
     #template = 'Form.html'
     #responds = {'stringData': data,}
-    return HttpResponse(data)
-
+    resp = HttpResponse(data)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp 
 @csrf_exempt #csrf skip, if you want to get the http's post form anywhere
 def get_reported_price(request):#SELECT * FROM `vegetable_price`
     sql.connectDB()
@@ -245,8 +252,9 @@ def get_reported_price(request):#SELECT * FROM `vegetable_price`
     sql.close()
     #template = 'Form.html'
     #responds = {'stringData': data,}
-    return HttpResponse(data)
-
+    resp = HttpResponse(data)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp 
 
 
 #UPDATE `report` SET `r_abort` = '0' WHERE `report`.`id` = 3;
@@ -270,4 +278,6 @@ def abort_report(request):#SELECT * FROM `vegetable_price`
     sql.close()
     #template = 'Form.html'
     #responds = {'stringData': data,}
-    return HttpResponse(data)
+    resp = HttpResponse(data)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp 
